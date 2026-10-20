@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formula Student: VCU firmware and 60 V indicator board | Ahmad Atyani</title>
+<meta name="description" content="CAN bus firmware for the vehicle control unit, and a safety-critical 60 V indicator PCB I designed that was fitted to the competition car.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231C6A46'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ahmad Atyani</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../cv.pdf">CV</a></li>
+        <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="project">
+  <header class="project-head">
+    <div class="wrap">
+      <a class="back" href="../index.html#projects">All projects</a>
+      <h1>Formula Student: VCU firmware and 60 V indicator board</h1>
+      <p class="lead">I was part of the University of Nottingham Formula Student team, working in both the vehicle control unit (VCU) software and hardware sub-teams. I wrote CAN bus firmware for the VCU and designed a safety-critical indicator board for the car.</p>
+      <dl class="tblock"><dt>Role</dt><dd>Member of the VCU software and hardware sub-teams</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Tools</dt><dd>STM32, STM32CubeIDE, CAN bus, PCB design, Formula Student rulebook</dd></dl>
+    </div>
+  </header>
+  <div class="wrap">
+    <figure class="fig hero-fig"><div class="shot" style="--ar:16/9"><img src="../images/formula-student.jpg" alt="Formula Student VCU and 60 V indicator board" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/formula-student.jpg<small>The car, or you with the team</small></span></div></div></figure>
+    <div class="prose">
+
+<h2>What I built</h2>
+<ul>
+  <li><strong>VCU firmware.</strong> STM32 firmware, written in STM32CubeIDE, that handles CAN bus messaging
+  between the car's subsystems. It works to the team's message definitions and timing requirements.</li>
+  <li><strong>60 V indicator board.</strong> A safety-critical indicator circuit designed to Formula Student
+  regulations. I designed the whole PCB myself, from schematic to layout, selected the components, checked the
+  design against the rulebook and sent it for fabrication. The finished board was fitted to the competition car.
+  <mark class="todo">Add one line on what the indicator shows and who it is for</mark></li>
+</ul>
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/fs-indicator-pcb.jpg" alt="The 60 V indicator PCB" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-indicator-pcb.jpg<small>Photo of the board or its layout</small></span></div></div><figcaption>The 60 V indicator PCB.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/fs-board-on-car.jpg" alt="The indicator board fitted to the car" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-board-on-car.jpg<small>Photo of it installed, if you have one</small></span></div></div><figcaption>The board fitted to the competition car.</figcaption></figure>
+</div>
+<h2>How it fits together</h2>
+<div class="diagram"><p class="chain-label">VCU messaging</p><ol class="chain two-way"><li><div class="node"><b>Car subsystems</b><span>Other control units</span></div></li><li><div class="node"><b>CAN bus</b><span>Team message definitions and timing</span></div></li><li><div class="node"><b>VCU</b><span>STM32 firmware</span></div></li></ol></div>
+
+    </div>
+    <nav class="pager" aria-label="More projects"><a href="scanning-rig.html"><small>Previous project</small>3D scanning and illumination rig</a><a class="next" href="pulse-oximeter.html"><small>Next project</small>Pulse oximeter</a></nav>
+  </div>
+</article>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
+    <p class="foot-links">
+      <a href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
+      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
