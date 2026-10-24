@@ -222,6 +222,7 @@ a.card-img:hover .shot { border-color: var(--mask); }
   padding-bottom: 3rem;
   border-bottom: 1px solid var(--rule);
 }
+.feature.alone { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 .feature-text h3 {
   margin: 0 0 0.6rem;
   font-size: clamp(1.5rem, 3vw, 2rem);

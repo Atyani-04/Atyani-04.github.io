@@ -20,7 +20,7 @@
       <ul class="nav">
         <li><a href="index.html#projects">Projects</a></li>
         <li><a href="index.html#about">About</a></li>
-        <li><a href="cv.pdf">CV</a></li>
+        
         <li><a href="https://github.com/Atyani-04">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
       </ul>
@@ -36,8 +36,8 @@
     Nottingham with First Class Honours. I work on embedded firmware, PCB design and computer vision.</p>
     <p class="where">Based in Nottingham, UK. Open to relocation.</p>
     <div class="actions">
-      <a class="btn primary" href="cv.pdf">Download my CV</a>
-      <a class="btn" href="mailto:ahmadatyani0@gmail.com">Email me</a>
+      
+      <a class="btn primary" href="mailto:ahmadatyani0@gmail.com">Email me</a>
     </div>
   </div>
 </section>
@@ -45,48 +45,17 @@
 <section class="section" id="projects">
   <div class="wrap">
     <h2>Projects</h2>
-    <article class="feature">
-      <a class="card-img" href="projects/scanning-rig.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:4/3"><img src="images/scanning-rig.jpg" alt="" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/scanning-rig.jpg<small>The finished rig, ideally mid-scan</small></span></div></div></a>
+    <article class="feature alone">
+      <a class="card-img" href="projects/formula-student.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/formula-student.jpg" alt="" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/formula-student.jpg<small>KiCad 3D view of the board</small></span></div></div></a>
       <div class="feature-text">
-        <p class="kicker">Final-year project</p>
-        <h3><a href="projects/scanning-rig.html">3D scanning and illumination rig</a></h3>
-        <p>My final-year project. A rig that automates multi-angle image capture under even lighting for 3D reconstruction, aimed at surgical visualisation. Built solo on a £200 budget and finished 16% under.</p>
-        <dl class="tblock compact"><dt>Role</dt><dd>Solo</dd><dt>Year</dt><dd>2025 to 2026</dd><dt>Built with</dt><dd>ESP32, Raspberry Pi 5, KiCad, OpenCV, Fusion 360</dd></dl>
-        <p class="more"><a href="projects/scanning-rig.html">Read the full write-up</a></p>
+        <p class="kicker">PCB design</p>
+        <h3><a href="projects/formula-student.html">Formula Student 60&nbsp;V detector and indicator</a></h3>
+        <p>A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.</p>
+        <dl class="tblock compact"><dt>Role</dt><dd>Designed the whole board</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Built with</dt><dd>KiCad, isolated analogue design, STM32, CAN bus</dd></dl>
+        <p class="more"><a href="projects/formula-student.html">Read the full write-up</a></p>
       </div>
     </article>
-    <div class="grid">
-<article class="card">
-  <a class="card-img" href="projects/formula-student.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/formula-student.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/formula-student.jpg<small>KiCad 3D view of the board</small></span></div></div></a>
-  <h3><a href="projects/formula-student.html">Formula Student 60&nbsp;V detector and indicator</a></h3>
-  <p>A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2024 to 2025</dd><dt>Built with</dt><dd>KiCad, isolated analogue design, STM32, CAN bus</dd></dl>
-</article>
-<article class="card">
-  <a class="card-img" href="projects/pulse-oximeter.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/pulse-oximeter.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/pulse-oximeter.jpg<small>The prototype on the bench</small></span></div></div></a>
-  <h3><a href="projects/pulse-oximeter.html">Pulse oximeter</a></h3>
-  <p>Measures SpO2 and heart rate from an optical signal. Analogue front end, STM32 firmware with ADC and DMA, FFT-based processing and an RS-485 link to a PC.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2024</dd><dt>Built with</dt><dd>STM32, analogue design, FFT, RS-485, CPLD</dd></dl>
-</article>
-<article class="card">
-  <a class="card-img" href="projects/vr-cad-viewer.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/vr-cad.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/vr-cad.jpg<small>The app with a model loaded</small></span></div></div></a>
-  <h3><a href="projects/vr-cad-viewer.html">VR CAD viewer</a></h3>
-  <p>A Qt and VTK desktop app that loads CAD models and shows them in a live VR session. Built in a team of three.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2025</dd><dt>Built with</dt><dd>C++17, Qt 6, VTK, OpenVR, CMake</dd></dl>
-</article>
-<article class="card">
-  <a class="card-img" href="projects/yolo-detector.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/yolo.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/yolo.jpg<small>Detections drawn on a test image</small></span></div></div></a>
-  <h3><a href="projects/yolo-detector.html">Custom object detector (YOLOv8)</a></h3>
-  <p>Trained YOLOv8 on about 4,000 images of four objects that aren't in the COCO dataset, reaching over 90% confidence on all four.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2025</dd><dt>Built with</dt><dd>Python, YOLOv8, Roboflow</dd></dl>
-</article>
-<article class="card">
-  <a class="card-img" href="projects/hydronode.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/hydronode.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/hydronode.jpg<small>Dashboard screenshot or architecture sketch</small></span></div></div></a>
-  <h3><a href="projects/hydronode.html">HydroNode</a><span class="status">In progress</span></h3>
-  <p>A LoRa-based platform for monitoring water tanks: sensor nodes, a gateway, a backend and a web dashboard. Built simulator first.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2026</dd><dt>Built with</dt><dd>Python, FastAPI, PostgreSQL, React, Docker</dd></dl>
-</article>
-    </div>
+    
   </div>
 </section>
 
