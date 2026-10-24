@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Formula Student: VCU firmware and 60 V indicator board | Ahmad Atyani</title>
-<meta name="description" content="CAN bus firmware for the vehicle control unit, and a safety-critical 60 V indicator PCB I designed that was fitted to the competition car.">
+<title>Formula Student 60&nbsp;V detector and indicator board | Ahmad Atyani</title>
+<meta name="description" content="A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231C6A46'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
         <li><a href="../index.html#projects">Projects</a></li>
         <li><a href="../index.html#about">About</a></li>
         <li><a href="../cv.pdf">CV</a></li>
-        <li><a href="https://github.com/YOUR-USERNAME">GitHub</a></li>
+        <li><a href="https://github.com/Atyani-04">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
       </ul>
     </nav>
@@ -33,30 +33,53 @@
   <header class="project-head">
     <div class="wrap">
       <a class="back" href="../index.html#projects">All projects</a>
-      <h1>Formula Student: VCU firmware and 60 V indicator board</h1>
-      <p class="lead">I was part of the University of Nottingham Formula Student team, working in both the vehicle control unit (VCU) software and hardware sub-teams. I wrote CAN bus firmware for the VCU and designed a safety-critical indicator board for the car.</p>
-      <dl class="tblock"><dt>Role</dt><dd>Member of the VCU software and hardware sub-teams</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Tools</dt><dd>STM32, STM32CubeIDE, CAN bus, PCB design, Formula Student rulebook</dd></dl>
+      <h1>Formula Student 60&nbsp;V detector and indicator board</h1>
+      <p class="lead">A board for the University of Nottingham Formula Student car (2024/25) that shows whether the high-voltage system is live. Formula Student treats anything above 60&nbsp;V as dangerous, so the board has two independent ways of showing when the voltage crosses that line.</p>
+      <dl class="tblock"><dt>Role</dt><dd>Designed the whole board: schematic, layout, component selection and rulebook compliance</dd><dt>Team</dt><dd>University of Nottingham Formula Student, VCU hardware and software sub-teams</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Outcome</dt><dd>Fabricated and fitted to the competition car</dd><dt>Key parts</dt><dd>ADuM4195 isolated amplifier, isolated DC-DC converter, 60&nbsp;V zener diode, 1700&nbsp;V SiC MOSFET</dd><dt>Tools</dt><dd>KiCad, Formula Student rulebook</dd></dl>
     </div>
   </header>
   <div class="wrap">
-    <figure class="fig hero-fig"><div class="shot" style="--ar:16/9"><img src="../images/formula-student.jpg" alt="Formula Student VCU and 60 V indicator board" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/formula-student.jpg<small>The car, or you with the team</small></span></div></div></figure>
+    <figure class="fig hero-fig"><div class="shot" style="--ar:2164/928"><img src="../images/fs-board-3d.jpg" alt="KiCad 3D view of the 60&nbsp;V detector and indicator board" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-board-3d.jpg<small>KiCad 3D view of the board</small></span></div></div><figcaption>KiCad 3D view of the board. The silkscreen marks the clearance distances between the high-voltage (TS) and low-voltage (LV) sections.</figcaption></figure>
     <div class="prose">
 
-<h2>What I built</h2>
+<h2>How it works</h2>
+<h3>The 60&nbsp;V detector, powered by the car's 12&nbsp;V supply</h3>
+<div class="diagram"><ol class="chain"><li><div class="node"><b>High voltage</b></div></li><li><div class="node"><b>250:1 divider</b><span>Precision resistors</span></div></li><li><div class="node"><b>ADuM4195</b><span>Isolated amplifier</span></div></li><li><div class="node"><b>Comparator</b><span>3&nbsp;V reference, trimmer sets the 60&nbsp;V trip</span></div></li><li><div class="node"><b>Red LED and TSAL</b><span>TSAL pulled low when live</span></div></li></ol></div>
 <ul>
-  <li><strong>VCU firmware.</strong> STM32 firmware, written in STM32CubeIDE, that handles CAN bus messaging
-  between the car's subsystems. It works to the team's message definitions and timing requirements.</li>
-  <li><strong>60 V indicator board.</strong> A safety-critical indicator circuit designed to Formula Student
-  regulations. I designed the whole PCB myself, from schematic to layout, selected the components, checked the
-  design against the rulebook and sent it for fabrication. The finished board was fitted to the competition car.
-  <mark class="todo">Add one line on what the indicator shows and who it is for</mark></li>
+  <li>A precision 250:1 resistor divider scales the high voltage down to a safe level.</li>
+  <li>An ADuM4195 isolated amplifier carries that small signal across the isolation barrier, so the
+  low-voltage side never touches the high-voltage side.</li>
+  <li>A comparator checks the signal against a precise 3&nbsp;V reference. A trimmer sets the trip point at 60&nbsp;V.</li>
+  <li>Above 60&nbsp;V, a red LED comes on and a transistor pulls the TSAL signal low. That signal tells the rest
+  of the car, including the Tractive System Active Light, that the system is live. A green LED shows the
+  detector has power.</li>
+  <li>An isolated DC-DC converter powers the high-voltage side from the car's 12&nbsp;V.</li>
 </ul>
-<div class="figs">
-  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/fs-indicator-pcb.jpg" alt="The 60 V indicator PCB" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-indicator-pcb.jpg<small>Photo of the board or its layout</small></span></div></div><figcaption>The 60 V indicator PCB.</figcaption></figure>
-  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/fs-board-on-car.jpg" alt="The indicator board fitted to the car" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-board-on-car.jpg<small>Photo of it installed, if you have one</small></span></div></div><figcaption>The board fitted to the competition car.</figcaption></figure>
+<h3>The 60&nbsp;V indicator, powered by the high voltage itself</h3>
+<div class="diagram"><ol class="chain"><li><div class="node"><b>High voltage</b></div></li><li><div class="node"><b>60&nbsp;V zener diode</b><span>Conducts above about 60&nbsp;V</span></div></li><li><div class="node"><b>1700&nbsp;V SiC MOSFET</b><span>Switched on by the zener</span></div></li><li><div class="node"><b>Warning LED</b></div></li></ol></div>
+<ul>
+  <li>A 60&nbsp;V zener diode only conducts once the voltage goes above about 60&nbsp;V. It then switches on a
+  1700&nbsp;V SiC MOSFET, which drives a warning LED.</li>
+  <li>It needs no 12&nbsp;V supply, no chip and no software, so it still warns you if the low-voltage system is
+  off or has failed. The rules require this.</li>
+  <li>A fuse protects it.</li>
+</ul>
+<h2>The board</h2>
+<ul>
+  <li>The high-voltage (TS) and low-voltage (LV) sections are physically separated, with the required
+  clearance distances marked on the silkscreen.</li>
+  <li>Two right-angle headers plug it into the accumulator system and carry the HVIL, TSAL, power and other
+  signals.</li>
+  <li>I designed the whole PCB in KiCad, from schematic to layout, selected the components, checked the design
+  against the Formula Student rulebook and sent it for fabrication. The finished board was fitted to the
+  competition car.</li>
+</ul>
+<div class="figs single">
+  <figure class="fig"><div class="shot" style="--ar:1916/798"><img src="../images/fs-pcb-layout.png" alt="KiCad PCB layout of the board, with the TS section on the left and the LV section on the right" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-pcb-layout.png<small>PCB layout screenshot</small></span></div></div><figcaption>The PCB layout in KiCad. The TS section is on the left and the LV section is on the right.</figcaption></figure>
 </div>
-<h2>How it fits together</h2>
-<div class="diagram"><p class="chain-label">VCU messaging</p><ol class="chain two-way"><li><div class="node"><b>Car subsystems</b><span>Other control units</span></div></li><li><div class="node"><b>CAN bus</b><span>Team message definitions and timing</span></div></li><li><div class="node"><b>VCU</b><span>STM32 firmware</span></div></li></ol></div>
+<h2>Also on the team</h2>
+<p>I also wrote STM32 firmware for the vehicle control unit (VCU) in STM32CubeIDE. It handles CAN bus
+messaging between the car's subsystems, working to the team's message definitions and timing requirements.</p>
 
     </div>
     <nav class="pager" aria-label="More projects"><a href="scanning-rig.html"><small>Previous project</small>3D scanning and illumination rig</a><a class="next" href="pulse-oximeter.html"><small>Next project</small>Pulse oximeter</a></nav>
@@ -69,7 +92,7 @@
     <p class="foot-links">
       <a href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
       <a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
-      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
+      <a href="https://github.com/Atyani-04">GitHub</a>
     </p>
   </div>
 </footer>
