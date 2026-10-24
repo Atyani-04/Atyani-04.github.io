@@ -43,8 +43,8 @@
     <div class="prose">
 
 <div class="figs">
-  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-camera-view.jpg" alt="The painted test object sitting in the rig" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-camera-view.jpg<small></small></span></div></div><figcaption>The test object in the rig.</figcaption></figure>
-  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/scanning-rig.jpg" alt="Textured 3D model of the test object, reconstructed from the rig's images" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/scanning-rig.jpg<small></small></span></div></div><figcaption>The textured 3D model the rig produced.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/5"><img src="../images/sr-full-rig.jpg" alt="The assembled rig: 3D-printed base and gears, stepper motor, acrylic plates and the Raspberry Pi on top" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-full-rig.jpg<small></small></span></div></div><figcaption>The finished rig.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/5"><img src="../images/scanning-rig.jpg" alt="Textured 3D model of the test object, reconstructed from the rig's images" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/scanning-rig.jpg<small></small></span></div></div><figcaption>The textured 3D model it produced.</figcaption></figure>
 </div>
 <h2>The idea</h2>
 <p>Existing low-cost photogrammetry setups fall into two groups. Multi-camera arrays work well but cost
@@ -72,7 +72,7 @@ of the circle and together they cover all 360° without the ribbon cables tangli
   spacing (predicted overlap 94.7%) and show a live side-by-side view. ReCap Pro turns the 68 images into a
   textured OBJ mesh.</li>
   <li><strong>Mechanics.</strong> Base, LED ring stand, gears, camera mounts and legs designed in Fusion 360,
-  3D printed in PLA and clamped together on M8 threaded rods.</li>
+  3D printed in PLA, with laser-cut acrylic plates, all clamped together on M8 threaded rods.</li>
   <li><strong>Validation.</strong> Python scripts to measure illumination uniformity from photos and image
   overlap with SIFT feature matching, plus cloud-to-mesh comparison in CloudCompare and topology checks in
   MeshLab. Every test was tied to one of nine written specifications.</li>
@@ -100,6 +100,9 @@ of the circle and together they cover all 360° without the ribbon cables tangli
   <li><strong>The gears vibrated and slipped.</strong> The first spur gears were noisy and vibrated, which risked blurring the images, so I
   redesigned them as 30° double-helical gears, kept under the 45° overhang limit for 3D printing. The press-fit
   pinion slipped on the motor shaft, so I added a grub screw that locks onto the shaft's flat.</li>
+  <li><strong>The 3D printer broke mid-build.</strong> The university printer was out of action for two weeks
+  and outsourcing the prints was too expensive. I taught myself to design for laser-cut acrylic and redesigned
+  the base in acrylic in a single day to stay on schedule. The project still got a First.</li>
   <li><strong>The cameras aren't perfectly in sync.</strong> The two streams were 105 ms apart against a 30 ms
   target, because the Pi triggers the captures one after the other in software. It doesn't affect scans of a
   still object. The fix is hardware-triggered global-shutter cameras, which were outside the budget.</li>
