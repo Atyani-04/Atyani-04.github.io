@@ -351,3 +351,5 @@ table.results td { font-weight: 650; font-variant-numeric: tabular-nums; }
   .node { max-width: none; }
   .pager .next { text-align: left; margin-left: 0; }
 }
+
+.figs .shot img { object-fit: contain; }

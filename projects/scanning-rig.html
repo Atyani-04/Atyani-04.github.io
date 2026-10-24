@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automated 3D scanning and illumination rig | Ahmad Atyani</title>
+<meta name="description" content="My final-year project. A rig that rotates two cameras around a still object under even LED lighting and turns the images into a 3D model, as a low-cost aid for keyhole surgery. Built solo for £167.71 against a £200 cap.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231C6A46'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ahmad Atyani</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        
+        <li><a href="https://github.com/Atyani-04">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<article class="project">
+  <header class="project-head">
+    <div class="wrap">
+      <a class="back" href="../index.html#projects">All projects</a>
+      <h1>Automated 3D scanning and illumination rig</h1>
+      <p class="lead">My final-year individual project at the University of Nottingham. Keyhole surgery gives the surgeon a narrow view with poor depth perception. This prototype combines a custom LED ring for even lighting with two rotating cameras, and turns the images into a textured 3D model of the operating area.</p>
+      <dl class="tblock"><dt>Role</dt><dd>Solo: requirements, electronics, firmware, mechanical design and validation</dd><dt>Year</dt><dd>2025 to 2026</dd><dt>Cost</dt><dd>£167.71 against a £200 cap</dd><dt>Outcome</dt><dd>First in the dissertation. 7 of 9 specifications passed, 2 partly passed, none failed</dd><dt>Tools</dt><dd>ESP32 (C++, FastLED, AccelStepper), Raspberry Pi 5, two Camera Module 3 Wide, KiCad, Fusion 360, Python and OpenCV, ReCap Pro, CloudCompare, MeshLab</dd></dl>
+    </div>
+  </header>
+  <div class="wrap">
+    
+    <div class="prose">
+
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-camera-view.jpg" alt="The painted test object sitting in the rig" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-camera-view.jpg<small></small></span></div></div><figcaption>The test object in the rig.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/scanning-rig.jpg" alt="Textured 3D model of the test object, reconstructed from the rig's images" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/scanning-rig.jpg<small></small></span></div></div><figcaption>The textured 3D model the rig produced.</figcaption></figure>
+</div>
+<h2>The idea</h2>
+<p>Existing low-cost photogrammetry setups fall into two groups. Multi-camera arrays work well but cost
+thousands (one system I reviewed cost about US$8,000). Turntable systems are cheap but rotate the object,
+and you can't rotate a patient. I couldn't find a compact rig that moves the cameras around a stationary
+object at close range, so I built one.</p>
+<p>Two cameras sit 180° apart on a ring gear. The ring only turns through 180°, so each camera covers half
+of the circle and together they cover all 360° without the ribbon cables tangling.</p>
+<h2>How it fits together</h2>
+<div class="diagram"><p class="chain-label">Lighting</p><ol class="chain"><li><div class="node"><b>ESP32</b><span>FastLED</span></div></li><li><div class="node"><b>LED ring PCB</b><span>16 WS2812B-2020 LEDs</span></div></li></ol></div>
+<div class="diagram"><p class="chain-label">Motion</p><ol class="chain"><li><div class="node"><b>ESP32</b><span>AccelStepper</span></div></li><li><div class="node"><b>A4988</b><span>Stepper driver, 1.5 A limit</span></div></li><li><div class="node"><b>NEMA 17</b><span>Stepper motor</span></div></li><li><div class="node"><b>4:1 gears</b><span>Double-helical, 0.45° per step</span></div></li><li><div class="node"><b>Two cameras</b><span>Mounted 180° apart</span></div></li></ol></div>
+<div class="diagram"><p class="chain-label">Imaging and validation</p><ol class="chain"><li><div class="node"><b>Two Camera Module 3 Wide</b><span>34 images each</span></div></li><li><div class="node"><b>Raspberry Pi 5</b><span>Capture and live view</span></div></li><li><div class="node"><b>ReCap Pro</b><span>Photogrammetry</span></div></li><li><div class="node"><b>CloudCompare and MeshLab</b><span>Accuracy and completeness</span></div></li></ol></div>
+<h2>What I built</h2>
+<ul>
+  <li><strong>LED ring PCB.</strong> A ring of 16 WS2812B-2020 addressable LEDs, designed in KiCad (48&nbsp;mm inner
+  and 72&nbsp;mm outer diameter). Before the layout I modelled the LEDs as Lambertian point sources: the model
+  predicted 1,350 lux and a uniformity ratio of 0.958 at the 100&nbsp;mm working distance. Six LEDs would have met
+  the brightness target, so I used 16 for uniformity. The 5&nbsp;V rail runs as a closed loop so every LED has two
+  supply paths, roughly halving the worst-case voltage drop. I hand-soldered the 2&nbsp;mm packages and found
+  daisy-chain faults one LED at a time with a FastLED test sketch.</li>
+  <li><strong>Motion.</strong> An ESP32 drives a NEMA 17 stepper through an A4988 driver, with the current limit
+  set to 1.5 A through VREF. AccelStepper ramps the speed up and down so the motor doesn't stall or jolt the
+  gears. A 15-tooth pinion drives a 60-tooth ring gear, giving 0.45° per step.</li>
+  <li><strong>Imaging.</strong> Two Camera Module 3 Wide units on a Raspberry Pi 5 take 34 images each at 5.4°
+  spacing (predicted overlap 94.7%) and show a live side-by-side view. ReCap Pro turns the 68 images into a
+  textured OBJ mesh.</li>
+  <li><strong>Mechanics.</strong> Base, LED ring stand, gears, camera mounts and legs designed in Fusion 360,
+  3D printed in PLA and clamped together on M8 threaded rods.</li>
+  <li><strong>Validation.</strong> Python scripts to measure illumination uniformity from photos and image
+  overlap with SIFT feature matching, plus cloud-to-mesh comparison in CloudCompare and topology checks in
+  MeshLab. Every test was tied to one of nine written specifications.</li>
+</ul>
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:1/1"><img src="../images/sr-led-ring.png" alt="KiCad 3D view of the 16-LED ring PCB" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-led-ring.png<small></small></span></div></div><figcaption>The LED ring PCB in KiCad.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:1/1"><img src="../images/sr-illuminance.png" alt="Heatmap of predicted illuminance across the target area" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-illuminance.png<small></small></span></div></div><figcaption>Predicted illuminance at 100&nbsp;mm (U = 0.958).</figcaption></figure>
+</div>
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-assembly.png" alt="Fusion 360 drawing of the assembled rig from four views" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-assembly.png<small></small></span></div></div><figcaption>The full assembly in Fusion 360.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-gears.png" alt="The 60-tooth ring gear and 15-tooth pinion" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-gears.png<small></small></span></div></div><figcaption>The 4:1 ring gear and pinion.</figcaption></figure>
+</div>
+<h2>Results</h2>
+<table class="results"><tbody><tr><th scope="row">Specifications</th><td>7 of 9 passed, 2 partly passed, none failed</td></tr><tr><th scope="row">Cost</th><td>£167.71 (cap £200)</td></tr><tr><th scope="row">Light at the centre, 100&nbsp;mm</th><td>1,140 lux (target 500)</td></tr><tr><th scope="row">Lighting uniformity, three runs</th><td>0.906 to 0.913 (target 0.90)</td></tr><tr><th scope="row">Overlap between images</th><td>93% (target 80%)</td></tr><tr><th scope="row">Finest detail resolved at 100&nbsp;mm</th><td>0.25&nbsp;mm, limited by the printed test chart</td></tr><tr><th scope="row">Reconstruction accuracy</th><td>Standard deviation 0.184&nbsp;mm, 91.2% of points within ±0.1&nbsp;mm</td></tr><tr><th scope="row">Live view</th><td>Two cameras at 30 fps, 2304 × 1296</td></tr></tbody></table>
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-quadrant.jpg" alt="One quadrant of the LED ring lit on its own" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-quadrant.jpg<small></small></span></div></div><figcaption>Each quarter of the ring can be lit on its own.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-live-view.jpg" alt="Side-by-side live view from both cameras" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-live-view.jpg<small></small></span></div></div><figcaption>Live view from both cameras at 30 fps.</figcaption></figure>
+</div>
+<h2>What went wrong</h2>
+<ul>
+  <li><strong>The first motor driver couldn't move the gears.</strong> The L298N worked with no load but stalled
+  once the ring gear was fitted, then went into thermal shutdown when I raised the current. Its BJT outputs drop
+  3.2 to 4.9&nbsp;V, so the motor never saw enough voltage. I replaced it with an A4988, which I had specified, ordered
+  and tested within about a week.</li>
+  <li><strong>The gears vibrated and slipped.</strong> The first spur gears were noisy and vibrated, which risked blurring the images, so I
+  redesigned them as 30° double-helical gears, kept under the 45° overhang limit for 3D printing. The press-fit
+  pinion slipped on the motor shaft, so I added a grub screw that locks onto the shaft's flat.</li>
+  <li><strong>The cameras aren't perfectly in sync.</strong> The two streams were 105 ms apart against a 30 ms
+  target, because the Pi triggers the captures one after the other in software. It doesn't affect scans of a
+  still object. The fix is hardware-triggered global-shutter cameras, which were outside the budget.</li>
+  <li><strong>A camera mount drifted mid-scan.</strong> The angle-adjustable pin joint on one 3D-printed camera
+  stand wore under repeated start-stop cycles and let the camera tilt upwards. That scan lost 11.5% of its
+  surface area and went from 2 holes to 6. I located the problem with a reverse cloud-to-mesh comparison and
+  MeshLab measurements. The fix is a fixed-angle aluminium bracket.</li>
+</ul>
+<div class="figs">
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-pin-joint.jpg" alt="The 3D-printed camera stand with its angle-adjustable pin joint" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-pin-joint.jpg<small></small></span></div></div><figcaption>The pin joint that let the camera drift.</figcaption></figure>
+  <figure class="fig"><div class="shot" style="--ar:4/3"><img src="../images/sr-c2m-error.png" alt="Reverse cloud-to-mesh error map showing the missing region on one face" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/sr-c2m-error.png<small></small></span></div></div><figcaption>The error is concentrated on the one face the drifting camera missed.</figcaption></figure>
+</div>
+<h2>What I'd do next</h2>
+<ul>
+  <li>Replace the adjustable camera stands with fixed-angle aluminium brackets.</li>
+  <li>Switch to WS2813 LEDs, whose backup data line stops one bad joint from taking out the rest of the ring.</li>
+  <li>Use hardware-triggered global-shutter cameras to bring the camera offset under 30 ms.</li>
+  <li>Run reconstruction locally on a GPU instead of in the cloud, to cut it from hours to minutes.</li>
+</ul>
+
+    </div>
+    <nav class="pager" aria-label="More projects"><span></span><a class="next" href="formula-student.html"><small>Next project</small>Formula Student 60&nbsp;V detector and indicator</a></nav>
+  </div>
+</article>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
+    <p class="foot-links">
+      <a href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
+      <a href="https://github.com/Atyani-04">GitHub</a>
+    </p>
+  </div>
+</footer>
+</body>
+</html>
