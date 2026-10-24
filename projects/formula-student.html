@@ -5,41 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Formula Student 60&nbsp;V detector and indicator board | Ahmad Atyani</title>
 <meta name="description" content="A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231C6A46'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0F3B2C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F3B2C'/%3E%3Ccircle cx='9' cy='9' r='2.2' fill='%23D4A537'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='13' font-weight='700' text-anchor='middle' fill='%23F3F6F1'%3EAA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="project-page">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-head">
+<header class="topbar">
   <div class="wrap">
     <a class="brand" href="../index.html">Ahmad Atyani</a>
     <nav aria-label="Main">
       <ul class="nav">
         <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
         <li><a href="../index.html#about">About</a></li>
-        
-        <li><a href="https://github.com/Atyani-04">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav-cv" href="../cv.pdf">CV</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <main id="main">
-
 <article class="project">
   <header class="project-head">
     <div class="wrap">
       <a class="back" href="../index.html#projects">All projects</a>
       <h1>Formula Student 60&nbsp;V detector and indicator board</h1>
       <p class="lead">A board for the University of Nottingham Formula Student car (2024/25) that shows whether the high-voltage system is live. Formula Student treats anything above 60&nbsp;V as dangerous, so the board has two independent ways of showing when the voltage crosses that line.</p>
-      <dl class="tblock"><dt>Role</dt><dd>Designed the whole board: schematic, layout, component selection and rulebook compliance</dd><dt>Team</dt><dd>University of Nottingham Formula Student, VCU hardware and software sub-teams</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Outcome</dt><dd>Fabricated and fitted to the competition car</dd><dt>Key parts</dt><dd>ADuM4195 isolated amplifier, isolated DC-DC converter, 60&nbsp;V zener diode, 1700&nbsp;V SiC MOSFET</dd><dt>Tools</dt><dd>KiCad, Formula Student rulebook</dd></dl>
+      <dl class="tblock on-dark"><dt>Role</dt><dd>Designed the whole board: schematic, layout, component selection and rulebook compliance</dd><dt>Team</dt><dd>University of Nottingham Formula Student, VCU hardware and software sub-teams</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Outcome</dt><dd>Fabricated and fitted to the competition car</dd><dt>Key parts</dt><dd>ADuM4195 isolated amplifier, isolated DC-DC converter, 60&nbsp;V zener diode, 1700&nbsp;V SiC MOSFET</dd><dt>Tools</dt><dd>KiCad, Formula Student rulebook</dd></dl>
     </div>
   </header>
   <div class="wrap">
-    <figure class="fig hero-fig"><div class="shot" style="--ar:2164/928"><img src="../images/fs-board-3d.jpg" alt="KiCad 3D view of the 60&nbsp;V detector and indicator board" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/fs-board-3d.jpg<small>KiCad 3D view of the board</small></span></div></div><figcaption>KiCad 3D view of the board. The silkscreen marks the clearance distances between the high-voltage (TS) and low-voltage (LV) sections.</figcaption></figure>
+    <figure class="fig hero-fig"><div class="hero-panel"><img src="../images/board-fs.webp" alt="KiCad 3D view of the 60&nbsp;V detector and indicator board"></div><figcaption>KiCad 3D view of the board. The silkscreen marks the clearance distances between the high-voltage (TS) and low-voltage (LV) sections.</figcaption></figure>
     <div class="prose">
 
 <h2>How it works</h2>
@@ -86,15 +86,18 @@ messaging between the car's subsystems, working to the team's message definition
   </div>
 </article>
 </main>
-<footer class="site-foot">
+<section class="contact" id="contact">
   <div class="wrap">
-    <p>Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
-    <p class="foot-links">
-      <a href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
-      <a href="https://github.com/Atyani-04">GitHub</a>
-    </p>
+    <h2>Get in touch</h2>
+    <p>I'm open to graduate engineering roles, in the UK or abroad. Email is the quickest way to reach me.</p>
+    <a class="mail" href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
+    <div class="actions">
+      <a class="btn gold" href="../cv.pdf">Download my CV</a>
+      <a class="btn line" href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
+      <a class="btn line" href="https://github.com/Atyani-04">GitHub</a>
+    </div>
+    <p class="small">Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
   </div>
-</footer>
+</section>
 </body>
 </html>

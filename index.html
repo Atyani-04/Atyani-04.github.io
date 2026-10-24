@@ -4,76 +4,106 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ahmad Atyani | Electronics and Computer Engineer</title>
-<meta name="description" content="Portfolio of Ahmad Atyani: embedded firmware, PCB design and computer vision projects.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231C6A46'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='15' font-weight='700' text-anchor='middle' fill='white'%3EAA%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Ahmad Atyani, Electronics and Computer Engineering graduate: embedded firmware, PCB design and computer vision projects.">
+<meta name="theme-color" content="#0F3B2C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F3B2C'/%3E%3Ccircle cx='9' cy='9' r='2.2' fill='%23D4A537'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='13' font-weight='700' text-anchor='middle' fill='%23F3F6F1'%3EAA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-head">
+<header class="topbar">
   <div class="wrap">
     <a class="brand" href="index.html">Ahmad Atyani</a>
     <nav aria-label="Main">
       <ul class="nav">
         <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
         <li><a href="index.html#about">About</a></li>
-        
-        <li><a href="https://github.com/Atyani-04">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a class="nav-cv" href="cv.pdf">CV</a></li>
       </ul>
     </nav>
   </div>
 </header>
 <main id="main">
-
 <section class="hero">
-  <div class="wrap">
-    <h1>I build the firmware, the board it runs on, and the software that reads it.</h1>
-    <p class="intro">I'm Ahmad Atyani, an Electronics and Computer Engineering graduate from the University of
-    Nottingham with First Class Honours. I work on embedded firmware, PCB design and computer vision.</p>
-    <p class="where">Based in Nottingham, UK. Open to relocation.</p>
-    <div class="actions">
-      
-      <a class="btn primary" href="mailto:ahmadatyani0@gmail.com">Email me</a>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1><span>Ahmad</span> <span>Atyani</span></h1>
+      <p class="tagline">I build the firmware, the board it runs on, and the software that reads it.</p>
+      <p class="intro">Electronics and Computer Engineering graduate from the University of Nottingham, with
+      First Class Honours. I work on embedded firmware, PCB design and computer vision.</p>
+      <div class="actions">
+        <a class="btn gold" href="cv.pdf">Download my CV</a>
+        <a class="btn line" href="#projects">See my projects</a>
+      </div>
     </div>
+    <div class="hero-boards" aria-hidden="true">
+      <img class="b-fs" src="images/board-fs.webp" alt="">
+      <img class="b-ring" src="images/board-ring.webp" alt="">
+    </div>
+  </div>
+  <div class="wrap">
+    <ul class="creds">
+      <li><b>First Class Honours, 78%</b><span>BEng Electronics and Computer Engineering, University of Nottingham, 2026</span></li>
+      <li><b>Embedded Systems Intern</b><span>Exalt Technologies, Jul to Sep 2025</span></li>
+      <li><b>Formula Student</b><span>University of Nottingham team, 2024 to 2025</span></li>
+    </ul>
   </div>
 </section>
 
 <section class="section" id="projects">
   <div class="wrap">
-    <h2>Projects</h2>
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Two builds written up in full, with the design decisions, test results and what went wrong.</p>
+    </div>
     <article class="feature">
-      <a class="card-img" href="projects/scanning-rig.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:4/3"><img src="images/scanning-rig.jpg" alt="" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/scanning-rig.jpg<small>3D model produced by the rig</small></span></div></div></a>
+      <a class="stack" href="projects/scanning-rig.html" tabindex="-1" aria-hidden="true"><div class="media photo"><img src="images/sr-full-rig.jpg" alt="The finished scanning rig: red 3D-printed base and gears, stepper motor, acrylic plates and a Raspberry Pi on top" style="object-position:50% 34%" loading="lazy"></div><div class="inset"><img src="images/scanning-rig.jpg" alt="Textured 3D model the rig produced of a small painted elephant" loading="lazy"></div></a>
       <div class="feature-text">
         <p class="kicker">Final-year project</p>
         <h3><a href="projects/scanning-rig.html">3D scanning and illumination rig</a></h3>
         <p>My final-year project. A rig that rotates two cameras around a still object under even LED lighting and turns the images into a 3D model, as a low-cost aid for keyhole surgery. Built solo for £167.71 against a £200 cap.</p>
-        <dl class="tblock compact"><dt>Role</dt><dd>Solo</dd><dt>Year</dt><dd>2025 to 2026</dd><dt>Built with</dt><dd>ESP32, Raspberry Pi 5, KiCad, Fusion 360, Python</dd></dl>
-        <p class="more"><a href="projects/scanning-rig.html">Read the full write-up</a></p>
+        <dl class="tblock"><dt>Role</dt><dd>Solo</dd><dt>Year</dt><dd>2025 to 2026</dd><dt>Result</dt><dd>7 of 9 specifications passed, 2 partly. 0.184&nbsp;mm reconstruction accuracy</dd><dt>Built with</dt><dd>ESP32, Raspberry Pi 5, KiCad, Fusion 360, Python</dd></dl>
+        <a class="btn ink" href="projects/scanning-rig.html">Read the full write-up</a>
       </div>
     </article>
-    <div class="grid">
-<article class="card">
-  <a class="card-img" href="projects/formula-student.html" tabindex="-1" aria-hidden="true"><div class="shot" style="--ar:16/10"><img src="images/formula-student.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('missing');this.remove()"><div class="ph"><span>Add photo: images/formula-student.jpg<small>KiCad 3D view of the board</small></span></div></div></a>
-  <h3><a href="projects/formula-student.html">Formula Student 60&nbsp;V detector and indicator</a></h3>
-  <p>A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.</p>
-  <dl class="tblock compact"><dt>Year</dt><dd>2024 to 2025</dd><dt>Built with</dt><dd>KiCad, isolated analogue design, STM32, CAN bus</dd></dl>
-</article>
+    <article class="feature flip">
+      <a class="stack" href="projects/formula-student.html" tabindex="-1" aria-hidden="true"><div class="media board-panel"><img src="images/board-fs.webp" alt="KiCad 3D view of the 60&nbsp;V detector and indicator board" loading="lazy"></div><div class="inset wide"><img src="images/fs-pcb-layout.png" alt="PCB layout of the board in KiCad" loading="lazy"></div></a>
+      <div class="feature-text">
+        <p class="kicker">PCB design</p>
+        <h3><a href="projects/formula-student.html">Formula Student 60&nbsp;V detector and indicator</a></h3>
+        <p>A board that shows whether the car's high-voltage system is live, with an isolated 60&nbsp;V detector and a backup indicator powered by the high voltage itself. I designed the whole PCB, and it was fitted to the competition car.</p>
+        <dl class="tblock"><dt>Role</dt><dd>Designed the whole board</dd><dt>Year</dt><dd>2024 to 2025</dd><dt>Result</dt><dd>Fabricated and fitted to the competition car</dd><dt>Built with</dt><dd>KiCad, isolated analogue design, STM32, CAN bus</dd></dl>
+        <a class="btn ink" href="projects/formula-student.html">Read the full write-up</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section band" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <p>What I've used on real builds, coursework and my internship.</p>
     </div>
+    <div class="skills"><div class="skill"><h3>Embedded</h3><ul class="pads"><li>STM32, bare metal and Zephyr RTOS</li><li>ESP32 and Raspberry Pi</li><li>C and C++</li><li>I2C, I3C, SPI, UART, CAN, RS-485</li><li>Interrupts, PWM, ADC with DMA</li><li>STM32CubeIDE</li></ul></div><div class="skill"><h3>Hardware</h3><ul class="pads"><li>KiCad schematic and layout</li><li>SMD and through-hole soldering</li><li>Bring-up with scope, function generator and bench supply</li><li>Fusion 360 and 3D printing</li><li>Laser-cut acrylic design</li></ul></div><div class="skill"><h3>Analogue, RF and control</h3><ul class="pads"><li>LTspice, MATLAB and Simulink</li><li>Active and digital filter design</li><li>BJT amplifier design</li><li>Keysight ADS and microstrip filters</li><li>Root locus, Bode and PI control</li></ul></div><div class="skill"><h3>Software</h3><ul class="pads"><li>Python: NumPy, OpenCV, PyTorch</li><li>C++17 and Qt</li><li>Git, pull requests, GitHub Actions</li><li>CMake, Docker, Linux</li><li>Requirements and test plans</li></ul></div></div>
   </div>
 </section>
 
 <section class="section" id="more">
   <div class="wrap">
-    <h2>Smaller projects and coursework</h2>
+    <div class="section-head">
+      <h2>Smaller projects and coursework</h2>
+    </div>
     <dl class="minor"><div><dt>Autonomous robot car</dt><dd>First year. OpenCV on a Raspberry Pi, with PID control on an ESP32 driving a servo to keep the car on a straight line.</dd></div><div><dt>Microstrip low-pass filter</dt><dd>3&nbsp;GHz cutoff, designed and simulated in Keysight ADS. Compared stepped-impedance and Kuroda layouts: 38.4&nbsp;mm against 55.8&nbsp;mm, with the larger one rejecting the stopband better.</dd></div><div><dt>Active and digital filters</dt><dd>4th-order Butterworth Sallen-Key low-pass filter, cutoff measured at 133.88&nbsp;Hz in LTspice against a 134&nbsp;Hz target, plus a z-domain digital version with notch zeros.</dd></div><div><dt>Two-stage BJT amplifier</dt><dd>Biased for a 2&nbsp;mA collector current with a predicted midband gain of 50.6, then reconciled against LTspice and re-verified on E-series values.</dd></div><div><dt>Self-attention text classifier</dt><dd>Self-attention built from first principles in PyTorch to classify factory maintenance reports. Tuning raised test accuracy from 70% to 95%.</dd></div><div><dt>UK day-ahead load forecasting</dt><dd>Ridge regression on a year of half-hourly grid demand, with regularisation picked by 5-fold cross-validation. Test MSE went from 900 to 5.6.</dd></div><div><dt>Digital modulation and BER</dt><dd>Bit error rate against Eb/N0 for QPSK through 256QAM over an AWGN channel in MATLAB and Simulink, checked against theory.</dd></div><div><dt>Enterprise network design</dt><dd>Eight VLAN segments, redundant Proxmox hosts, DNS, VoIP for 32 concurrent calls and a firewall rule set, costed at about £54.8k in year one.</dd></div><div><dt>Binary exploitation and threat modelling</dt><dd>A stack buffer overflow and return-to-libc exploit, analysed in Ghidra, and a STRIDE threat model for a healthcare app.</dd></div></dl>
   </div>
 </section>
 
-<section class="section" id="about">
+<section class="section band" id="about">
   <div class="wrap about">
     <div class="about-text">
       <h2>About</h2>
@@ -84,32 +114,41 @@
       consultancy. I developed and debugged C applications on STM32 boards under Zephyr RTOS and bare metal,
       implemented and compared I3C and I2C drivers and wrote the technical recommendation used for protocol
       selection, and tested and fault-found multi-board Ethernet applications.</p>
+      <dl class="facts">
+        <dt>Education</dt>
+        <dd>BEng Electronics and Computer Engineering, University of Nottingham, Sep 2023 to Jun 2026. First Class Honours, 78%.</dd>
+        <dd>International Baccalaureate, Friends School, Ramallah, 2022. 42/45.</dd>
+        <dt>Experience</dt>
+        <dd>Embedded Systems Intern, Exalt Technologies, Jul to Sep 2025.</dd>
+        <dt>Languages</dt>
+        <dd>Arabic (native), English (fluent), German (A2).</dd>
+        <dt>Certifications</dt>
+        <dd>Harvard CS50, Google Data Analytics Professional Certificate, MATLAB Onramp.</dd>
+        <dt>Membership</dt>
+        <dd>IET Student Member.</dd>
+      </dl>
     </div>
-    <dl class="facts">
-      <dt>Education</dt>
-      <dd>BEng Electronics and Computer Engineering, University of Nottingham, Sep 2023 to Jun 2026. First Class Honours, 78%.</dd>
-      <dd>International Baccalaureate, Friends School, Ramallah, 2022. 42/45.</dd>
-      <dt>Experience</dt>
-      <dd>Embedded Systems Intern, Exalt Technologies, Jul to Sep 2025.</dd>
-      <dt>Languages</dt>
-      <dd>Arabic (native), English (fluent), German (A2).</dd>
-      <dt>Certifications</dt>
-      <dd>Harvard CS50, Google Data Analytics Professional Certificate, MATLAB Onramp.</dd>
-      <dt>Membership</dt>
-      <dd>IET Student Member.</dd>
-    </dl>
+    <aside class="cv-card">
+      <a href="cv.pdf" class="cv-thumb"><img src="images/cv-preview.jpg" alt="Preview of Ahmad Atyani's one-page CV" loading="lazy"></a>
+      <h3>My CV</h3>
+      <p>One page, PDF. For my phone number, email me.</p>
+      <a class="btn ink" href="cv.pdf">Download CV</a>
+    </aside>
   </div>
 </section>
 </main>
-<footer class="site-foot">
+<section class="contact" id="contact">
   <div class="wrap">
-    <p>Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
-    <p class="foot-links">
-      <a href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
-      <a href="https://github.com/Atyani-04">GitHub</a>
-    </p>
+    <h2>Get in touch</h2>
+    <p>I'm open to graduate engineering roles, in the UK or abroad. Email is the quickest way to reach me.</p>
+    <a class="mail" href="mailto:ahmadatyani0@gmail.com">ahmadatyani0@gmail.com</a>
+    <div class="actions">
+      <a class="btn gold" href="cv.pdf">Download my CV</a>
+      <a class="btn line" href="https://www.linkedin.com/in/ahmadatyani">LinkedIn</a>
+      <a class="btn line" href="https://github.com/Atyani-04">GitHub</a>
+    </div>
+    <p class="small">Ahmad Atyani. Nottingham, UK. Open to relocation.</p>
   </div>
-</footer>
+</section>
 </body>
 </html>
